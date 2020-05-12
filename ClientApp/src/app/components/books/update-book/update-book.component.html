@@ -1,0 +1,40 @@
+<div class="update-book" *ngIf="updateBookForm">
+    <form [formGroup]="updateBookForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="form-group">
+            <label for="title">Title</label>    
+            <input type="text" class="form-control" id="title" placeholder="Book title" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>    
+            <input type="text" class="form-control" id="author" placeholder="Book author" formControlName="author">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>    
+            <textarea type="text" class="form-control" id="description" placeholder="Book description" formControlName="description"></textarea>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-4 col-sm-4">
+                <div class="form-group">
+                    <label for="dateStart">Date Start</label>
+                    <input type="date" class="form-control" id="dateStart" placeholder="Date start" formControlName="dateStart">
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4 col-sm-4">
+                <div class="form-group">
+                    <label for="dateRead">Date Read</label>
+                    <input type="date" class="form-control" id="dateRead" placeholder="Date read" formControlName="dateRead">
+                </div>
+            </div>  
+            <div class="col-md-4 col-xs-4 col-sm-4">
+                <div class="form-group">
+                    <label for="rate">Rate</label>
+                    <input type="number" min="0" max="5" class="form-control" id="rate" placeholder="Rate" formControlName="rate">
+                </div>
+            </div>                
+        </div>
+        <button class="btn btn-success"  [disabled]="updateBookForm.invalid" type="submit">Update</button>
+        <button class="btn btn-default" [routerLink]="['/books']">Cancel</button>
+    </form>
+
+</div>
